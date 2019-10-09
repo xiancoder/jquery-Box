@@ -1,0 +1,188 @@
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <div class="row" id="paper-top">Button</div>
+        <ul id="breadcrumb">UI Element/Button</ul>
+        <div class="content-wrap">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="nest" id="buttonClose">
+                        <div class="title-alt">
+                            <h6> 进度按钮示例 </h6>
+                            <div class="titleClose"> <a class="gone" href="#buttonClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#button"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="button">
+                            <button class="btn btn-default  button test" data-opacity="0.9">DEMO1</button>
+                            <button class="btn btn-default  button test" data-color="#0DB8DF" data-opacity="0.5">DEMO2</button>
+                            <button class="btn btn-default  button test disable" data-color="#ff0011" data-opacity="0.5">DEMO3</button>
+                            <button class="btn btn-default  button test">YABTT</button>
+                            <button class="btn btn-default  button test disable" data-opacity="0.91" data-color="#222222">DEMO4</button>
+                            <p style="margin:15px 0">bonus! 也适用于任何元素。</p>
+                            <div style=" display: block; height: 5px; background-color: #efefef; margin-bottom: 20px; border-radius: 2px;" id="standard" data-opacity="0.8"></div>
+                            <button class="btn btn-default button other">Div Bar</button>
+                            <script ui-bs>
+                                head.js(
+                                    " js/button/progressbutton.jQuery.js",
+                                function() {
+                                    var interval;
+                                    var bar = $('.main').progressbutton();
+                                    $('#reset').click(function() { clearInterval(interval); if (bar) { bar.progressbutton('reset'); } });
+                                    $('.color').click(function() { var clicked = $(this); bar.progressbutton({ color: clicked.data('color') }); });
+                                    $('.opacity').click(function() { var clicked = $(this); bar.progressbutton({ opacity: clicked.data('opacity') }); });
+                                    $('.test').click(function() {
+                                        var itm = $(this);
+                                        if (itm.hasClass('disable')) { itm.attr('disabled', 'disabled'); }
+                                        var bar = itm.progressbutton({ percent: -1 });
+                                        var clock = 0;
+                                        var interval = setInterval(function() {
+                                            bar.progressbutton({ percent: clock });
+                                            clock = clock + 0.5;
+                                            if (clock > 100) { itm.removeAttr('disabled'); clearInterval(interval); bar.progressbutton('reset'); }
+                                        }, 30);
+                                    });
+                                    $('.action').click(function() { clearInterval(interval); var clicked = $(this); bar.progressbutton({ percent: clicked.data('percent') }); });
+                                    $('.other').click(function() {
+                                        var itm = $('#standard');
+                                        var bar = itm.progressbutton({ percent: -1 });
+                                        var clock = 0;
+                                        var interval = setInterval(function() {
+                                            bar.progressbutton({ percent: clock });
+                                            clock = clock + 0.5;
+                                            if (clock > 100) { clearInterval(interval); bar.progressbutton('reset'); }
+                                        }, 30);
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="nest" id="bootsrap_btnClose">
+                        <div class="title-alt">
+                            <h6> BOOTSRAP按钮 </h6>
+                            <div class="titleClose"> <a class="gone" href="#bootsrap_btnClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#bootsrap_btn"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="bootsrap_btn">
+                            <p>默认</p>
+                            <button type="button" class="btn btn-default">Default</button>
+                            <button type="button" class="btn btn-primary">Primary</button>
+                            <button type="button" class="btn btn-success">Success</button>
+                            <button type="button" class="btn btn-info">Info</button>
+                            <button type="button" class="btn btn-warning">Warning</button>
+                            <button type="button" class="btn btn-danger">Danger</button>
+                            <button type="button" class="btn btn-link">Link</button>
+                            <br>
+                            <p style="margin:20px 0 10px">单按钮下拉菜单</p>
+                            <div class="btn-group">
+                                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">Default <span class="caret"></span> </button>
+                                <ul role="menu" class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li class="divider"></li> <li><a href="#">Separated link</a></li> </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button">Primary <span class="caret"></span> </button>
+                                <ul role="menu" class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li class="divider"></li> <li><a href="#">Separated link</a></li> </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button data-toggle="dropdown" class="btn btn-success dropdown-toggle" type="button">Success <span class="caret"></span> </button>
+                                <ul role="menu" class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li class="divider"></li> <li><a href="#">Separated link</a></li> </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button data-toggle="dropdown" class="btn btn-info dropdown-toggle" type="button">Info <span class="caret"></span> </button>
+                                <ul role="menu" class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li class="divider"></li> <li><a href="#">Separated link</a></li> </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle" type="button">Warning <span class="caret"></span> </button>
+                                <ul role="menu" class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li class="divider"></li> <li><a href="#">Separated link</a></li> </ul>
+                            </div>
+                            <div class="btn-group">
+                                <button data-toggle="dropdown" class="btn btn-danger dropdown-toggle" type="button">Danger <span class="caret"></span> </button>
+                                <ul role="menu" class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li class="divider"></li> <li><a href="#">Separated link</a></li> </ul>
+                            </div>
+                            <p style="margin:20px 0 10px">带有图标的按钮</p>
+                            <button type="button" class="btn btn-default"> <span class="entypo-pencil"></span>&nbsp;&nbsp;Edit</button>
+                            <button type="button" class="btn btn-primary"> <span class="entypo-plus-squared"></span>&nbsp;&nbsp;Add</button>
+                            <button type="button" class="btn btn-success"> <span class="entypo-upload"></span>&nbsp;&nbsp;Upload</button>
+                            <button type="button" class="btn btn-info"> <span class="entypo-trash"></span>&nbsp;&nbsp;Delete</button>
+                            <button type="button" class="btn btn-warning"> <span class="entypo-print"></span>&nbsp;&nbsp;Print</button>
+                            <button type="button" class="btn btn-danger"> <span class="entypo-cancel-squared"></span>&nbsp;&nbsp;Cancel</button>
+                            <button type="button" class="btn btn-link"> <span class="entypo-import"></span>&nbsp;&nbsp;Import</button>
+                            <br>
+                            <p style="margin:20px 0 10px">按钮组</p>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-warning">Left</button>
+                                <button type="button" class="btn btn-danger">Middle</button>
+                                <button type="button" class="btn btn-info">Right</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="nest" id="ladaClose">
+                        <div class="title-alt">
+                            <h6> 进度按钮 (Lada)</h6>
+                            <div class="titleClose"> <a class="gone" href="#ladaClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#lada"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="lada">
+                            <p>将加载指标合并到调用它们的操作中的UI概念。主要用于表单提交时立即提供反馈的表单，而不是在浏览器执行操作时让用户疑惑。对于一个现实世界的例子</p>
+                            <section class="button-demo"> <button class="ladda-button" data-size="xs" data-color="green" data-style="expand-left">Expand Left</button> </section>
+                            <section class="button-demo"> <h3></h3> <button class="ladda-button" data-size="xs" data-color="green" data-style="expand-right">Expand Right</button> </section>
+                            <section class="button-demo"> <button class="ladda-button" data-size="xs" data-color="green" data-style="expand-up">Expand Up</button> </section>
+                            <section class="button-demo"> <button class="ladda-button" data-size="xs" data-color="green" data-style="expand-down">Expand Down</button> </section>
+                            <br>
+                            <section class="button-demo"> <button class="ladda-button" data-size="xs" data-color="red" data-style="contract">Contract</button> </section>
+                            <section class="button-demo"> <h3></h3> <button class="ladda-button" data-size="xs" data-color="red" data-style="contract-overlay" style="z-index: 10;">Contract Overlay</button> </section>
+                            <section class="button-demo"> <button class="ladda-button" data-size="xs" data-color="red" data-style="zoom-in">Zoom In</button> </section>
+                            <section class="button-demo"> <button class="ladda-button" data-size="xs" data-color="red" data-style="zoom-out">Zoom Out</button> </section>
+                            <br>
+                            <section class="button-demo"> <button class="ladda-button" data-size="xs" data-color="blue" data-style="slide-left">Slide Left</button> </section>
+                            <section class="button-demo"> <button class="ladda-button" data-size="xs" data-color="blue" data-style="slide-right">Slide Right</button> </section>
+                            <section class="button-demo"> <button class="ladda-button" data-size="xs" data-color="blue" data-style="slide-up">Slide Up</button> </section>
+                            <section class="button-demo"> <button class="ladda-button" data-size="xs" data-color="blue" data-style="slide-down">Slide Down</button> </section>
+                            <br>
+                            <section class="progress-demo"> <button class="ladda-button" data-size="xs" data-color="purple" data-style="expand-right">Expand Right</button> </section>
+                            <section class="progress-demo"> <button class="ladda-button" data-size="xs" data-color="purple" data-style="contract">Contract</button> </section>
+                            <br>
+                            <section class="progress-demo"> <button class="ladda-button" data-color="mint" data-style="expand-right" data-size="xs">Extra Small</button> </section>
+                            <section class="progress-demo"> <button class="ladda-button" data-color="mint" data-style="expand-right" data-size="s">Small</button> </section>
+                            <section class="progress-demo"> <button class="ladda-button" data-color="mint" data-style="expand-right" data-size="l">Large</button> </section>
+                            <section class="progress-demo"> <button class="ladda-button" data-color="mint" data-style="expand-right" data-size="xl">Extra Large</button> </section>
+                            <script ui-bs>
+                                head.js(
+                                    "../js.lib.p/ladda/spin.min.js",
+                                    "../js.lib.p/ladda/ladda.min.css",
+                                    "../js.lib.p/ladda/ladda.min.js",
+                                function() {
+                                    // Bind normal buttons
+                                    Ladda.bind('.button-demo button', { timeout: 2000 });
+                                    // Bind progress buttons and simulate loading progress
+                                    Ladda.bind('.progress-demo button', {
+                                        callback: function(instance) {
+                                            var progress = 0;
+                                            var interval = setInterval(function() {
+                                                progress = Math.min(progress + Math.random() * 0.1, 1);
+                                                instance.setProgress(progress);
+                                                if (progress === 1) { instance.stop(); clearInterval(interval); }
+                                            }, 200);
+                                        }
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="nest" id="scriptClose">
+                        <div class="title-alt">
+                            <h6> Labels and Badges</h6>
+                            <div class="titleClose"> <a class="gone" href="#scriptClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#script"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="label">
+                            <style type="text/css" ui-bs>
+                                .button-demo,
+                                .progress-demo { display: inline-block; margin-right: 3px; margin-bottom: 20px; }
+                            </style>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-space"></div>
+        <div id="footer"></div>
+    </div>

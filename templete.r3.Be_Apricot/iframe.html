@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Apricot 1.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link rel="stylesheet" href=" css/style.css">
+    <link rel="stylesheet" href="../js.lib.cdn/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../js.lib.local/libs/skin-select/skin-select.css">
+    <link rel="stylesheet" href="../js.lib.cdn/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../js.lib.local/libs/entypo/entypo-icon.css">
+    <link rel="stylesheet" href=" css/open-sans.css">
+    <link rel="stylesheet" href=" css/awwwards.css">
+    <link rel="stylesheet" href=" js/tip/tooltipster.css">
+    <link rel="stylesheet" href="../js.lib.cdn/libs/pace/1.0.2/pace-theme-center-simple.css">
+    <link rel="stylesheet" href=" js/slidebars/slidebars.css">
+    <link rel="stylesheet" href=" js/gage/jquery.easy-pie-chart.css">
+    <link rel="stylesheet" type="text/css" href="../js.lib.local/libs/number-pb/number-pb.css">
+    <style type="text/css">
+        canvas#canvas4 { position: relative; top: 20px; }
+        .pace { width: 97%; margin-left: 3%;}
+    </style>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href=" ico/minus.png">
+    <script type="text/xianjs" id="paper-top-temp">
+        <div class="col-sm-3">
+            <h2 class="tittle-content-header">
+                <i class="icon-window"></i>
+                <span>###</span>
+            </h2>
+        </div>
+        <div class="col-sm-7 hidden-xs">
+            <div class="devider-vertical"></div>
+            <div class="tittle-middle-header">
+                <div class="alert">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <span class="tittle-alert entypo-info-circled"></span>
+                    Welcome back,&nbsp;
+                    <strong>Dave mattew!</strong>&nbsp;&nbsp;Your last sig in at Yesterday, 16:54 PM
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 hidden-xs">
+            <div class="devider-vertical"></div>
+            <div class="btn-group btn-wigdet pull-right">
+                <div class="btn">Widget</div>
+                <button data-toggle="dropdown" class="btn dropdown-toggle" type="button">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul role="menu" class="dropdown-menu">
+                    <li> <a href="#"> <span class="entypo-plus-circled margin-iconic"></span>Add New</a> </li>
+                    <li> <a href="#"> <span class="entypo-heart margin-iconic"></span>Favorite</a> </li>
+                    <li> <a href="#"> <span class="entypo-cog margin-iconic"></span>Setting</a> </li>
+                </ul>
+            </div>
+        </div>
+    </script>
+    <script type="text/xianjs" id="breadcrumb-temp">
+        <li> <span class="entypo-home"></span> </li>
+        <li><i class="fa fa-lg fa-angle-right"></i> </li>
+        <li><a href="#" title="Sample page 1">#1#</a> </li>
+        <li><i class="fa fa-lg fa-angle-right"></i> </li>
+        <li><a href="#" title="Sample page 1">#2#</a> </li>
+        <li class="pull-right">
+            <div class="input-group input-widget">
+                <input style="border-radius:15px" type="text" placeholder="Search..." class="form-control">
+            </div>
+        </li>
+    </script>
+    <script type="text/xianjs" id="footer-temp">
+        <div class="devider-footer-left"></div>
+        <div class="time">
+            <p id="spanDate">
+            <p id="clock">
+        </div>
+        <div class="copyright">Make with Love
+            <span class="entypo-heart"></span>2014 <a href="http://themeforest.net/item/apricot-navigation-admin-dashboard-template/7664475?WT.ac=category_item&WT.z_author=themesmile">(Themesmile) Purchase This Item</a> All Rights Reserved</div>
+        <div class="devider-footer"></div>
+        <ul>
+            <li><i class="fa fa-facebook"></i></li>
+            <li><i class="fa fa-twitter"></i></li>
+            <li><i class="fa fa-google-plus"></i></li>
+        </ul>
+    </script>
+</head>
+<body style=" background: transparent;overflow: hidden; "> 
+</body>
+</html>
+<script src="../js.lib.cdn/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../js.lib.cdn/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js.lib.cdn/libs/headjs/1.0.3/head.min.js"></script>
+<script type="text/javascript">
+    //PAGE LOADER
+    initPace();
+    if(self == top){ $("body").css("overflow","scoll") }
+    $("body").load( _Url_getParame("page") ,function(){
+        //TOGGLE CLOSE
+        $('body .nav-toggle').click(function() {
+            //get collapse content selector
+            var collapse_content_selector = $(this).attr('href');
+            //make the collapse content to be shown or hide
+            var toggle_switch = $(this);
+            $(collapse_content_selector).slideToggle(function() {
+                if ($(this).css('display') == 'block') {
+                    //change the button label to be 'Show'
+                    toggle_switch.html('<span class="entypo-minus-squared"></span>');
+                } else {
+                    //change the button label to be 'Hide'
+                    toggle_switch.html('<span class="entypo-plus-squared"></span>');
+                }
+            });
+        });
+        $('body .nav-toggle-alt').click(function() {
+            //get collapse content selector
+            var collapse_content_selector = $(this).attr('href');
+            //make the collapse content to be shown or hide
+            var toggle_switch = $(this);
+            $(collapse_content_selector).slideToggle(function() {
+                if ($(this).css('display') == 'block') {
+                    //change the button label to be 'Show'
+                    toggle_switch.html('<span class="entypo-up-open"></span>');
+                } else {
+                    //change the button label to be 'Hide'
+                    toggle_switch.html('<span class="entypo-down-open"></span>');
+                }
+            });
+            return false;
+        });
+        //CLOSE ELEMENT
+        $("body .gone").click(function() {
+            var collapse_content_close = $(this).attr('href');
+            $(collapse_content_close).hide();
+        });
+        $("body #paper-top").each(function() {
+            var html = $(this).html(),
+                temp = $("#paper-top-temp").text();
+            $(this).html( temp.replace("###",html) );
+        });
+        $("body #breadcrumb").each(function() {
+            var html = $(this).html().split("/"),
+                temp = $("#breadcrumb-temp").text();
+            $(this).html( temp.replace("#1#",html[0]).replace("#2#",html[1]) );
+        });
+        $("body #footer").each(function() {
+            var temp = $("#footer-temp").text();
+            $(this).html( temp );
+        });
+        initPrettify();
+    });
+    function initPace(){
+        head.js(
+            "../js.lib.cdn/libs/pace/1.0.2/pace.min.js",
+        function() {
+            paceOptions = {
+                ajax: false, // disabled
+                document: false, // disabled
+                eventLag: false, // disabled
+                elements: {
+                    selectors: ['.my-page']
+                }
+            };
+        });
+    }
+    function _Url_getParame(name,cancelBubble){
+        var r = new RegExp("(\\?|#|&)"+name+"=([^&#]*)(&|#|$)");
+        var m = location.href.match(r);
+        if( !m && !cancelBubble ) m=window.location.href.match(r);
+        return ( m?decodeURIComponent(m[2]):"" );
+    }
+    function initPrettify(){
+        head.js(
+            "../js.lib.cdn/libs/prettify/r298/prettify.min.css",
+            "../js.lib.cdn/libs/prettify/r298/prettify.min.js",
+            "../js.lib.cdn/libs/prettify//bs.js",
+        function() {
+            uibs( $('body') );
+        });
+    }
+</script>

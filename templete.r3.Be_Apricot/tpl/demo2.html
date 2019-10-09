@@ -1,0 +1,68 @@
+        <div class="container-fluid paper-wrap bevel tlbr">
+            <div class="row" id="paper-top">大文件进度条上传</div>
+            <ul id="breadcrumb">Home/ 大文件进度条上传</ul>
+            <div class="content-wrap">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <style type="text/css">
+                            #parent{position: relative;width: 500px;height:20px;border:1px solid #ccc;border-radius:20px}
+                            #child{position: absolute;width:0%;height:20px;background: #5FB878;line-height: 20px;color: #ffffff;font-size: 12px;border-radius:20px}
+                        </style>
+                        <form action="" method="post">
+                            <div id="parent">
+                                <div id="child"></div>
+                            </div>
+                            <p>上传文件:<input type="file" name="file"></p>
+                            <p><input class="btn btn-danger" type="submit" value="提交" id="submit"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            function $2(id){
+                return document.getElementById(id);
+            }
+            var oForm = document.getElementsByTagName('form')[0];
+            var oSubmit = $2('submit');
+            //如果多个人同时提交这个表单的时候，由于是异步的请求，互不影响
+            oSubmit.onclick = function(){
+                try{
+                    var xhr = new XMLHttpRequest();
+                }catch(e){
+                    var xhr = new ActiveXObject("Msxml2.XMLHTTP");
+                }
+                $2('parent').style.display = 'block';
+                $2('child').style.display = 'block';
+                xhr.upload.onprogress = function(e){
+                    var ev = e || window.event;
+                    var percent = Math.floor((ev.loaded / ev.total)*100);
+                    // console.log(percent);
+                    //将百分比显示到进度条
+                    //将上传进度的百分比显示到child里面
+                    $2('child').style.width = percent+'%';
+                    $2('child').style.textAlign = 'center';
+                    $2('child').innerHTML = percent+'%';
+                    //判断如果百分比到达100%时候，隐藏掉
+                    if(percent==100){
+                    //    $2('parent').style.display = 'none';
+                    //    $2('child').style.display = 'none';
+                    }
+                }
+                xhr.open('post','server.php/progress.php',true);
+                var form = new FormData(oForm);
+                xhr.send(form);
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState==4 && xhr.status==200){
+                        eval("var obj ="+xhr.responseText);
+                        if(obj.status){
+                            alert('上传成功');
+                        }else{
+                            alert('上传失败');
+                        }
+                    }
+                }
+                //阻止表单提交
+                return false;
+            }
+        </script>

@@ -1,0 +1,131 @@
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <div class="row" id="paper-top">Text Editor</div>
+        <ul id="breadcrumb">Form Element/text editor</ul>
+        <div class="content-wrap">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="nest" id="headerClose">
+                        <div class="title-alt">
+                            <h6> Editor</h6>
+                            <div class="titleClose"> <a class="gone" href="#headerClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#header"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="header">
+                            <form>
+                                <div id="toolbar" style="display: none;">
+                                    <a class="btn" data-wysihtml5-command="bold" title="CTRL+B"> <span class="fontawesome-bold"></span> </a>
+                                    <a class="btn" data-wysihtml5-command="italic" title="CTRL+I"> <span class="fontawesome-italic"></span> </a>
+                                    <a class="btn" data-wysihtml5-command="createLink"> <span class="fontawesome-link"></span> </a>
+                                    <a class="btn" data-wysihtml5-command="insertImage"> <span class="fontawesome-picture"></span> </a>
+                                    <a class="btn" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">h1</a> 
+                                    <a class="btn" data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">h2</a> 
+                                    <a class="btn" data-wysihtml5-command="insertUnorderedList"> <span class="fontawesome-list-ul"></span> </a>
+                                    <a class="btn" data-wysihtml5-command="insertOrderedList"> <span class="fontawesome-list-ol"></span> </a>
+                                    <a class="btn" data-wysihtml5-command="foreColor" data-wysihtml5-command-value="red">red</a> 
+                                    <a class="btn" data-wysihtml5-command="foreColor" data-wysihtml5-command-value="green">green</a> 
+                                    <a class="btn" data-wysihtml5-command="foreColor" data-wysihtml5-command-value="blue">blue</a> 
+                                    <a class="btn" data-wysihtml5-command="undo"> <span class="fontawesome-backward"></span> </a>
+                                    <a class="btn" data-wysihtml5-command="redo"> <span class="fontawesome-forward"></span> </a>
+                                    <a class="btn" data-wysihtml5-command="insertSpeech">speech</a>
+                                    <a class="btn" data-wysihtml5-action="change_view">switch to html view</a>
+                                    <div data-wysihtml5-dialog="createLink" style="display: none;">
+                                        <label> Link: <input data-wysihtml5-dialog-field="href" value="http://"> </label>
+                                        <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+                                    </div>
+                                    <div data-wysihtml5-dialog="insertImage" style="display: none;">
+                                        <label> Image: <input data-wysihtml5-dialog-field="src" value="http://"> </label>
+                                        <label>
+                                            Align:
+                                            <select data-wysihtml5-dialog-field="className">
+                                                <option value="">default
+                                                <option value="wysiwyg-float-left">left
+                                                <option value="wysiwyg-float-right">right
+                                            </select>
+                                        </label>
+                                        <a data-wysihtml5-dialog-action="save">OK</a>&nbsp;<a data-wysihtml5-dialog-action="cancel">Cancel</a>
+                                    </div>
+                                </div>
+                                <textarea style="width: 100%; height: 300px" id="textarea" placeholder="Enter text ..."></textarea>
+                                <br>
+                                <button class="btn btn-default" type="reset" value="Reset form!">Reset form!</button>
+                                <div id="log"></div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="nest" id="elClose">
+                        <div class="title-alt">
+                            <h6> wysihtml5</h6>
+                            <div class="titleClose"> <a class="gone" href="#elClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#el"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="el">
+                            <textarea class="textarea form-control" placeholder="Enter text ..." style="width: 100%; height: 300px"></textarea>
+                        </div>
+                    </div>
+                    <div class="nest" id="jsClose">
+                        <div class="title-alt">
+                            <h6> wysihtml5</h6>
+                            <div class="titleClose"> <a class="gone" href="#jsClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#js"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="js">
+                            <script ui-bs>
+                                head.js(
+                                    "../js.lib.j/textEditor/src/bootstrap-wysihtml5.css",
+                                    "../js.lib.j/textEditor/dist/wysihtml5-0.4.0pre.js",
+                                    "../js.lib.j/textEditor/lib/js/wysihtml5-0.3.0.js",
+                                    "../js.lib.j/textEditor/src/bootstrap3-wysihtml5.js",
+                                    "../js.lib.j/textEditor/editor.css",
+                                    "../js.lib.j/textEditor/parser_rules/advanced.js",
+                                function() {
+                                    var editor = new wysihtml5.Editor("textarea", {
+                                        toolbar: "toolbar",
+                                        stylesheets: "../js.lib.j/textEditor/examples/css/stylesheet.css",
+                                        parserRules: wysihtml5ParserRules
+                                    });
+                                    var log = document.getElementById("log");
+                                    editor
+                                    .on("load", function() { log.innerHTML += "<div>load</div>"; })
+                                    .on("focus", function() { log.innerHTML += "<div>focus</div>"; })
+                                    .on("blur", function() { log.innerHTML += "<div>blur</div>"; })
+                                    .on("change", function() { log.innerHTML += "<div>change</div>"; })
+                                    .on("paste", function() { log.innerHTML += "<div>paste</div>"; })
+                                    .on("newword:composer", function() { log.innerHTML += "<div>newword:composer</div>"; })
+                                    .on("undo:composer", function() { log.innerHTML += "<div>undo:composer</div>"; })
+                                    .on("redo:composer", function() { log.innerHTML += "<div>redo:composer</div>"; });
+                                    $('.textarea').wysihtml5();
+                                });
+                            </script>
+                            <script ui-bs>
+                                head.js(
+                                    "../js.lib.j/textEditor/sceditor/minified/themes/square.min.css",
+                                    "../js.lib.j/textEditor/sceditor/minified/jquery.sceditor.bbcode.min.js",
+                                function() {
+                                    var loadCSS = function(url, callback) {
+                                        var link = document.createElement('link');
+                                        link.type = 'text/css';
+                                        link.rel = 'stylesheet';
+                                        link.href = url;
+                                        link.id = 'theme-style';
+                                        document.getElementsByTagName('head')[0].appendChild(link);
+                                        var img = document.createElement('img');
+                                        img.onerror = function() { if (callback) callback(link); }
+                                        img.src = url;
+                                    }
+                                    var initEditor = function() {
+                                        $(".sceditor").sceditor({
+                                            plugins: 'bbcode',
+                                            style: "../js.lib.j/textEditor/sceditor/minified/square.min.css"
+                                        });
+                                    };
+                                    initEditor();
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-space"></div>
+        <div id="footer"></div>
+    </div>

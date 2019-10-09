@@ -1,0 +1,112 @@
+    <link rel="stylesheet" href="../js.lib.j/lcalendar/css/calendar.css">
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <div class="row" id="paper-top">Calendar</div>
+        <ul id="breadcrumb">UI Element/Calendar</ul>
+        <div class="content-wrap">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="nest" id="labelClose">
+                        <div class="title-alt">
+                            <h6>
+                                <span class="icon-calendar"></span>&nbsp;&nbsp;Calendar</h6>
+                            <div class="titleClose">
+                                <a class="gone" href="#labelClose">
+                                    <span class="entypo-cancel"></span>
+                                </a>
+                            </div>
+                            <div class="titleToggle">
+                                <a class="nav-toggle-alt" href="#label">
+                                    <span class="entypo-up-open"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="body-nest" id="label">
+                            <div class="page-header">
+                                <div class="pull-right form-inline">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary" data-calendar-nav="prev">
+                                            <span class="entypo-left-circled">&nbsp;&nbsp;Prev</span>
+                                        </button>
+                                        <button class="btn btn-default" data-calendar-nav="today">Today</button>
+                                        <button class="btn btn-primary" data-calendar-nav="next">Next&nbsp;&nbsp;
+                                            <span class="entypo-right-circled"></span>
+                                        </button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn btn-warning" data-calendar-view="year">Year</button>
+                                        <button class="btn btn-warning active" data-calendar-view="month">Month</button>
+                                        <button class="btn btn-warning" data-calendar-view="week">Week</button>
+                                        <button class="btn btn-warning" data-calendar-view="day">Day</button>
+                                    </div>
+                                </div>
+                                <h3>
+                                    <span></span>
+                                </h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div id="calendar"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row" style="padding:0 20px 0 0;">
+                                        <select id="first_day" class="form-control" style="margin-bottom:10px;margin-top:30px;">
+                                            <option value="" selected="selected">First day of week language-dependant
+                                            <option value="2">First day of week is Sunday
+                                            <option value="1">First day of week is Monday
+                                        </select>
+                                        <select id="language" class="form-control">
+                                            <option value="">Language
+                                            <option value="nl-NL">Dutch
+                                            <option value="fr-FR">French
+                                            <option value="de-DE">German
+                                            <option value="el-GR">Greek
+                                            <option value="it-IT">Italian
+                                            <option value="pl-PL">Polish
+                                            <option value="pt-BR">Portuguese (Brazil)
+                                            <option value="es-MX">Spanish (Mexico)
+                                            <option value="es-ES">Spanish (Spain)
+                                            <option value="ru-RU">Russian
+                                            <option value="sv-SE">Swedish
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-space"></div>
+        <div id="footer"></div>
+    </div>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/jstimezonedetect/jstz.min.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/language/fr-FR.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/language/de-DE.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/language/el-GR.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/language/it-IT.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/language/pl-PL.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/language/pt-BR.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/language/es-MX.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/language/es-ES.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/language/ru-RU.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/language/sv-SE.js"></script>
+    <script type="text/javascript" src="../js.lib.j/lcalendar/calendar.js"></script>
+    <script type="text/javascript">
+        $("#button-bg").click(function() { $("body").css({ "background": "url('img/bg5.jpg')no-repeat center center fixed" }); });
+        $("#button-bg2").click(function() { $("body").css({ "background": "url('img/bg2.jpg')no-repeat center center fixed" }); });
+        $("#button-bg3").click(function() { $("body").css({ "background": "url('img/bg.jpg')no-repeat center center fixed" }); });
+        $("#button-bg5").click(function() { $("body").css({ "background": "url('img/giftly.png')repeat" }); });
+        $("#button-bg6").click(function() { $("body").css({ "background": "#2c3e50" }); });
+        $("#button-bg7").click(function() { $("body").css({ "background": "url('img/bg3.png')repeat" }); });
+        $("#button-bg8").click(function() { $("body").css({ "background": "url('img/bg8.jpg')no-repeat center center fixed" }); });
+        $("#button-bg9").click(function() { $("body").css({ "background": "url('img/bg9.jpg')no-repeat center center fixed" }); });
+        $("#button-bg10").click(function() { $("body").css({ "background": "url('img/bg10.jpg')no-repeat center center fixed" }); });
+        $("#button-bg11").click(function() { $("body").css({ "background": "url('img/bg11.jpg')no-repeat center center fixed" }); });
+        $("#button-bg12").click(function() { $("body").css({ "background": "url('img/bg12.jpg')no-repeat center center fixed" }); });
+        $("#button-bg13").click(function() { $("body").css({ "background": "url('img/bg13.jpg')repeat" }); });
+        $('.tooltitle').tooltip();
+    </script>
+</body>
+</html>

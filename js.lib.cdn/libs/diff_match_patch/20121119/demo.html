@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>文件对比的使用</title>
+        <script type="text/javascript" src="./diff_match_patch.js" ></script>
+        <style>
+            html, body { height: 100%; font-family: "微软雅黑"; }
+            * { margin: 0; padding: 0; }
+            .container { max-width: 1000px; margin: 0 auto; padding: 20px 20px 0 20px; }
+            ul, li { list-style-type: none; }
+            li { margin: 15px 0; } .title { float: left; width: 50%; }
+            #text1, #text2 { width: 48%; height: 100px; margin-top: 15px; resize: none; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>文本对比</h1>
+            <br />
+            <div class="title">文本1</div>
+            <div class="title">文本2</div>
+            <textarea id="text1" placeholder="文本1"></textarea>
+            <textarea id="text2" placeholder="文本2"></textarea>
+            <br /><br />
+            <div>
+                <button id="main" onclick="diffText('main')">diff-main方法对比</button>
+            </div><br />
+            <div>
+                <button id="semantic" onclick="diffText('semantic')">diff_cleanupSemantic方法对比</button>
+            </div><br />
+            <div>
+                <button id="efficiency" onclick="diffText('efficiency')">diff_cleanupEfficiency方法对比</button>&nbsp;Diff_EditCost&nbsp;<input type="text" maxlength="2" style="width: 50px" id="editCost" value=2 />
+            </div><br />
+            <h2>对比结果</h2>
+            <div id="result"></div>
+        </div>
+        <script>
+            let diffUntil = new diff_match_patch();
+            function diffText(diffType) {
+                let text1 = document.getElementById('text1').value;
+                let text2 = document.getElementById('text2').value;
+                let editCost = document.getElementById('editCost').value || 4;
+                let d = diffUntil.diff_main(text1, text2);
+                if (diffType === 'semantic') {
+                    diffUntil.diff_cleanupSemantic(d);
+                }
+                if (diffType === 'efficiency'){
+                    diffUntil.Diff_EditCost = parseInt(editCost);
+                    diffUntil.diff_cleanupEfficiency(d);
+                }
+                let diffHtml = diffUntil.diff_prettyHtml(d);
+                document.getElementById('result').innerHTML = diffHtml;
+            }
+        </script>
+    </body>
+</html>

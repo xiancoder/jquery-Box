@@ -1,0 +1,127 @@
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <div class="row" id="paper-top">Table Dynamic</div>
+        <ul id="breadcrumb">Table/Table Dynamic</ul>
+        <div class="content-wrap">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="nest" id="FootableClose">
+                        <div class="title-alt">
+                            <h6> Footable paginate</h6>
+                            <div class="titleClose"> <a class="gone" href="#FootableClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#Footable"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="Footable">
+                            <p class="lead well">FooTable是一个jQuery插件，旨在让小型设备上的HTML表格看起来很棒 - 无论您可能在其中有多少列数据。而且它的响应能力我认为这比DataTable更好</p>
+                            <table class="table-striped footable-res footable metro-blue" data-page-size="6">
+                                <thead>
+                                    <tr> <th> 名字 <span></span></th> <th> 姓 <span></span></th> <th data-hide="phone,tablet"> 职称 <span></span></th> <th data-hide="phone,tablet"> DOB <span></span></th> <th data-hide="phone"> 状态 <span></span></th> </tr>
+                                </thead>
+                                <tbody>
+                                    <tr> <td><span></span>Isidra</td> <td><a href="#">德留克斯</a> </td> <td>交通法院裁判员</td> <td data-value="78025368997">22 Jun 1972</td> <td data-value="1"> <span title="活性">活性</span> </td> </tr>
+                                    <tr> <td><span></span>绍纳语</td> <td>Woldt</td> <td><a href="#">航空运输试点</a> </td> <td data-value="370961043292">1981年10月3日</td> <td data-value="2"> <span title="残">残</span> </td> </tr>
+                                    <tr> <td><span></span>威</td> <td>莱昂纳多</td> <td>商业服务销售代表</td> <td data-value="-22133780420">1969年4月19日</td> <td data-value="3"> <span title="暂停">暂停</span> </td> </tr>
+                                    <tr> <td><span></span>Easer</td> <td>Dragoo的</td> <td>干墙剥离器</td> <td data-value="250833505574">1977年12月13日</td> <td data-value="1"> <span title="活性">活性</span> </td> </tr>
+                                    <tr> <td><span></span>枫</td> <td>哈勒戴</td> <td>航空战术准备官员</td> <td data-value="694116650726">1991年12月30日</td> <td data-value="3"> <span title="暂停">暂停</span> </td> </tr>
+                                    <tr> <td><span></span>玛克辛</td> <td><a href="#">Woldt</a> </td> <td><a href="#">商业服务销售代表</a> </td> <td data-value="561440464855">1987年10月17日</td> <td data-value="2"> <span title="残">残</span> </td> </tr>
+                                    <tr> <td><span></span>Lorraine</td> <td>Mcgaughy</td> <td>Hemodialysis Technician</td> <td data-value="437400551390">11 Nov 1983</td> <td data-value="2"> <span title="Disabled">Disabled</span> </td> </tr>
+                                    <tr> <td><span></span>Lizzee</td> <td><a href="#">Goodlow</a> </td> <td>Technical Services Librarian</td> <td data-value="-257733999319">1 Nov 1961</td> <td data-value="3"> <span title="Suspended">Suspended</span> </td> </tr>
+                                    <tr> <td><span></span>Judi</td> <td>Badgett</td> <td>Electrical Lineworker</td> <td data-value="362134712000">23 Jun 1981</td> <td data-value="1"> <span title="Active">Active</span> </td> </tr>
+                                    <tr> <td><span></span>Lauri</td> <td>Hyland</td> <td>Blackjack Supervisor</td> <td data-value="500874333932">15 Nov 1985</td> <td data-value="3"> <span title="Suspended">Suspended</span> </td> </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="nest" id="FilteringClose">
+                        <div class="title-alt">
+                            <h6> Footable Filtering</h6>
+                            <div class="titleClose"> <a class="gone" href="#FilteringClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#Filtering"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="Filtering">
+                            <div class="row" style="margin-bottom:10px;">
+                                <div class="col-sm-4">
+                                    <input class="form-control" id="filter" placeholder="Search..." type="text">
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="filter-status form-control">
+                                        <option value="active">Active
+                                        <option value="disabled">Disabled
+                                        <option value="suspended">Suspended
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="#clear" style="margin-left:10px;" class="pull-right btn btn-info clear-filter" title="clear filter">clear</a>
+                                    <a href="#api" class="pull-right btn btn-info filter-api" title="Filter using the Filter API">filter API</a>
+                                </div>
+                            </div>
+                            <table id="footable-res2" class="demo" data-filter="#filter" data-filter-text-only="true">
+                                <thead>
+                                    <tr> <th> 名字 <span></span></th> <th> 姓 <span></span></th> <th data-hide="phone,tablet"> 职称 <span></span></th> <th data-hide="phone,tablet"> DOB <span></span></th> <th data-hide="phone"> 状态 <span></span></th> </tr>
+                                </thead>
+                                <tbody>
+                                    <tr> <td><span></span>Isidra</td> <td><a href="#">德留克斯</a> </td> <td>交通法院裁判员</td> <td data-value="78025368997">22 Jun 1972</td> <td data-value="1"> <span title="活性">活性</span> </td> </tr>
+                                    <tr> <td><span></span>绍纳语</td> <td>Woldt</td> <td><a href="#">航空运输试点</a> </td> <td data-value="370961043292">1981年10月3日</td> <td data-value="2"> <span title="残">残</span> </td> </tr>
+                                    <tr> <td><span></span>威</td> <td>莱昂纳多</td> <td>商业服务销售代表</td> <td data-value="-22133780420">1969年4月19日</td> <td data-value="3"> <span title="暂停">暂停</span> </td> </tr>
+                                    <tr> <td><span></span>Easer</td> <td>Dragoo的</td> <td>干墙剥离器</td> <td data-value="250833505574">1977年12月13日</td> <td data-value="1"> <span title="活性">活性</span> </td> </tr>
+                                    <tr> <td><span></span>枫</td> <td>哈勒戴</td> <td>航空战术准备官员</td> <td data-value="694116650726">1991年12月30日</td> <td data-value="3"> <span title="暂停">暂停</span> </td> </tr>
+                                    <tr> <td><span></span>玛克辛</td> <td><a href="#">Woldt</a> </td> <td><a href="#">商业服务销售代表</a> </td> <td data-value="561440464855">1987年10月17日</td> <td data-value="2"> <span title="残">残</span> </td> </tr>
+                                    <tr> <td><span></span>Lorraine</td> <td>Mcgaughy</td> <td>Hemodialysis Technician</td> <td data-value="437400551390">11 Nov 1983</td> <td data-value="2"> <span title="Disabled">Disabled</span> </td> </tr>
+                                    <tr> <td><span></span>Lizzee</td> <td><a href="#">Goodlow</a> </td> <td>Technical Services Librarian</td> <td data-value="-257733999319">1 Nov 1961</td> <td data-value="3"> <span title="Suspended">Suspended</span> </td> </tr>
+                                    <tr> <td><span></span>Judi</td> <td>Badgett</td> <td>Electrical Lineworker</td> <td data-value="362134712000">23 Jun 1981</td> <td data-value="1"> <span title="Active">Active</span> </td> </tr>
+                                    <tr> <td><span></span>Lauri</td> <td>Hyland</td> <td>Blackjack Supervisor</td> <td data-value="500874333932">15 Nov 1985</td> <td data-value="3"> <span title="Suspended">Suspended</span> </td> </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="nest" id="jsClose">
+                        <div class="title-alt">
+                            <h6> js </h6>
+                            <div class="titleClose"> <a class="gone" href="#jsClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#jsing"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="js">
+                            <script ui-bs>
+                                head.js(
+                                    "../js.lib.j/footable/footable.core.css",
+                                    "../js.lib.j/footable/footable.standalone.css",
+                                    "../js.lib.j/footable/footable.all.min.js",
+                                    "../js.lib.j/footable/footable.sort.js",
+                                    "../js.lib.j/footable/footable.filter.js",
+                                    "../js.lib.j/footable/footable.paginate.js",
+                                function() {
+                                    $('.footable-res').footable();
+                                    $('#footable-res2').footable().bind('footable_filtering', function(e) {
+                                        var selected = $('.filter-status').find(':selected').text();
+                                        if (selected && selected.length > 0) {
+                                            e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;
+                                            e.clear = !e.filter;
+                                        }
+                                    });
+                                    $('.clear-filter').click(function(e) {
+                                        e.preventDefault();
+                                        $('.filter-status').val('');
+                                        $('table.demo').trigger('footable_clear_filter');
+                                    });
+                                    $('.filter-status').change(function(e) {
+                                        e.preventDefault();
+                                        $('table.demo').trigger('footable_filter', {
+                                            filter: $('#filter').val()
+                                        });
+                                    });
+                                    $('.filter-api').click(function(e) {
+                                        e.preventDefault();
+                                        var footableFilter = $('table').data('footable-filter');
+                                        alert('about to filter table by "tech"');
+                                        footableFilter.filter('tech');
+                                        if (confirm('clear filter now?')) { footableFilter.clearFilter(); }
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-space"></div>
+        <div id="footer"></div>
+    </div>

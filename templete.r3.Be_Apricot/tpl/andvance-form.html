@@ -1,0 +1,296 @@
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <div class="row" id="paper-top">Advance Form</div>
+        <ul id="breadcrumb">Form/Advance Form</ul>
+        <div class="content-wrap">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="nest" id="validationClose">
+                        <div class="title-alt">
+                            <h6> Form Validation</h6>
+                            <div class="titleClose"> <a class="gone" href="#validationClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#validation"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="validation">
+                            <div class="form_center">
+                                <form action="contact" id="contact-form" class="form-horizontal">
+                                    <fieldset>
+                                        <div class="control-group">
+                                            <label class="control-label" for="name">Your Name</label>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" name="name" id="name">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="email">Email Address</label>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" name="email" id="email">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="subject">Subject</label>
+                                            <div class="controls">
+                                                <input type="text" class="form-control" name="subject" id="subject">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="message">Your Message</label>
+                                            <div class="controls">
+                                                <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions" style="margin:20px 0 0 0;">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="reset" class="btn">Cancel</button>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <script ui-bs>
+                                head.js(
+                                    " js/validate/validate.css",
+                                    " js/validate/jquery.validate.min.js",
+                                function() {
+                                    //Validation
+                                    $('#contact-form').validate({
+                                        rules: { name: { minlength: 2, required: true }, email: { required: true, email: true }, subject: { minlength: 2, required: true }, message: { minlength: 2, required: true } },
+                                        highlight: function(element) { $(element).closest('.control-group').removeClass('success').addClass('error'); },
+                                        success: function(element) { element .text('OK!').addClass('valid') .closest('.control-group').removeClass('error').addClass('success'); }
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="nest" id="maskedClose">
+                        <div class="title-alt">
+                            <h6> Masked Input</h6>
+                            <div class="titleClose"> <a class="gone" href="#maskedClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#masked"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="masked">
+                            <div class="form_center">
+                                <div class="well">
+                                    <div class="input-group ">
+                                        <span class="input-group-addon btn-success"><i class="fa fa-calendar"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="date">
+                                        <span class="input-group-addon ">99/99/9999</span>
+                                    </div>
+                                </div>
+                                <div class="well">
+                                    <div class="input-group ">
+                                        <span class="input-group-addon btn-success"><i class="fa fa-phone-square"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="phone">
+                                        <span class="input-group-addon ">eg.(021) 751-2789</span>
+                                    </div>
+                                </div>
+                                <div class="well">
+                                    <div class="input-group ">
+                                        <span class="input-group-addon btn-success"><i class="fa fa-money"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="money">
+                                        <span class="input-group-addon ">eg.20.000.000</span>
+                                    </div>
+                                </div>
+                                <div class="well">
+                                    <div class="input-group ">
+                                        <span class="input-group-addon btn-success"><i class="fa fa-phone-square"></i>
+                                        </span>
+                                        <input type="text" class="form-control" id="ssn">
+                                        <span class="input-group-addon ">eg.99-AAA-9999</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <script ui-bs>
+                                head.js(
+                                    " js/inputMask/jquery.maskedinput.js",
+                                function() {
+                                    // MASKED INPUT
+                                    $("#date").mask("99/99/9999", { completed: function() { alert("Your birthday was: " + this.val()); } });
+                                    $("#phone").mask("(999) 999-9999");
+                                    $("#money").mask("99.999.9999", { placeholder: "*" });
+                                    $("#ssn").mask("99--AAA--9999", { placeholder: "*" });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="nest" id="labelClose">
+                        <div class="title-alt">
+                            <h6> Date Picker</h6>
+                            <div class="titleClose"> <a class="gone" href="#dateClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#date_1"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="date_1">
+                            <div class="form_center">
+                                <p>Attached to a field with the format specified via options.</p>
+                                <div class="well">
+                                    <input type="text" class="form-control" id="dp1" value="02-16-2012">
+                                </div>
+                                <p>Start with years viewMode.</p>
+                                <div class="well">
+                                    <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="12-02-2012" id="dpYears" class="input-group date">
+                                        <input type="text" value="12-02-2012" class="form-control" id="ssn2">
+                                        <span class="input-group-addon add-on entypo-calendar "></span>
+                                    </div>
+                                </div>
+                                <p>Default behavior in pt-BR, picks date/time with fast masked input typing (need only to type the numbers, the static part of the mask is inserted automatically if missing) or via the popup widget, which supports year, month, day, hour and minute views:</p>
+                                <div class="well">
+                                    <div id="datetimepicker1" class="input-group date">
+                                        <input class="form-control" data-format="dd/MM/yyyy hh:mm:ss" type="text">
+                                        <span class="input-group-addon add-on">
+                                            <i style="font-style:normal;" data-time-icon="entypo-clock" data-date-icon="entypo-calendar"> </i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <script ui-bs>
+                                head.js(
+                                    " ../js.lib.j/datepicker/bootstrap.datepicker.css",
+                                    " ../js.lib.j/datepicker/bootstrap.datepicker.js",
+                                    " ../js.lib.j/datetimepicker/bootstrap.datetimepicker.min.css",
+                                    " ../js.lib.j/datetimepicker/bootstrap-datetimepicker.min.js",
+                                function() {
+                                    $('#datetimepicker1').datetimepicker({ language: 'pt-BR' });
+                                    $('#dp1').datepicker()
+                                    $('#dpYears').datepicker();
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="nest" id="timeClose">
+                        <div class="title-alt">
+                            <h6> Time picker</h6>
+                            <div class="titleClose"> <a class="gone" href="#timeClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#time"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="time">
+                            <div class="form_center">
+                                <div class="well">
+                                    <div class="input-group bootstrap-timepicker">
+                                        <input id="timepicker1" type="text" class="form-control">
+                                        <span class="input-group-addon add-on entypo-clock"></span>
+                                    </div>
+                                </div>
+                                <div class="well">
+                                    <input id="t1" value="2:30 PM" data-format="hh:mm A" class="form-control" type="text">
+                                </div>
+                                <div class="well">
+                                    <div class="input-group">
+                                        <input id="t2" value="14:30" class="form-control" readonly="" type="text">
+                                        <span style="cursor:pointer;" id="toggle-btn" class="input-group-addon add-on entypo-calendar "></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <script ui-bs>
+                                head.js(
+                                    " ../js.lib.j/datepicker/clockface.css",
+                                    " ../js.lib.j/datepicker/clockface.js",
+                                function() {
+                                    $('#t1').clockface();
+                                    $('#t2').clockface({ format: 'HH:mm', trigger: 'manual' });
+                                    $('#toggle-btn').click(function(e) { e.stopPropagation(); $('#t2').clockface('toggle'); });
+                                });
+                                head.js(
+                                    "../js.lib.j/timepicker/bootstrap-timepicker.min.css",
+                                    "../js.lib.j/timepicker/bootstrap-timepicker.min.js",
+                                function() {
+                                    $('#timepicker1').timepicker();
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="nest" id="colorClose">
+                        <div class="title-alt">
+                            <h6> Color picker</h6>
+                            <div class="titleClose"> <a class="gone" href="#colorClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#color"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="color">
+                            <div class="form_center">
+                                <div class="well">
+                                    <input type="text" class="form-control" value="#8fff00" id="cp1">
+                                </div>
+                                <div class="well">
+                                    <input type="text" class="form-control" value="rgb(0,194,255,0.78)" id="cp2" data-color-format="rgba">
+                                </div>
+                                <div class="well">
+                                    <div class="input-group colorpicker-component bscp" data-color="rgb(255, 146, 180)" data-color-format="rgb" id="cp3">
+                                        <input type="text" value="" readonly="" class="form-control">
+                                        <span class="input-group-addon"><i style="background-color: rgb(255, 146, 180)"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="well">
+                                    <a href="#" class="btn btn-info" id="cp4" data-color-format="hex" data-color="rgb(255, 255, 255)">Change background color</a>
+                                </div>
+                                <hr>
+                            </div>
+                            <script ui-bs>
+                                head.js(
+                                    " ../js.lib.j/colorPicker/bootstrap-colorpicker.css",
+                                    " ../js.lib.j/colorPicker/bootstrap-colorpicker.min.js",
+                                function() {
+                                    // Code for those demos
+                                    var _createColorpickers = function() {
+                                        $('#cp1').colorpicker({ format: 'hex' });
+                                        $('#cp2').colorpicker();
+                                        $('#cp3').colorpicker();
+                                        var bodyStyle = $('body')[0].style;
+                                        $('#cp4').colorpicker().on('changeColor', function(ev) { bodyStyle.backgroundColor = ev.color.toHex(); });
+                                    }
+                                    _createColorpickers();
+                                    $('.bscp-destroy').click(function(e) { e.preventDefault(); $('.bscp').colorpicker('destroy'); });
+                                    $('.bscp-create').click(function(e) { e.preventDefault(); _createColorpickers(); });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="nest" id="tagInputClose">
+                        <div class="title-alt">
+                            <h6> Tag Input</h6>
+                            <div class="titleClose"> <a class="gone" href="#tagInputClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#tagInput"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="tagInput">
+                            <div class="form_center">
+                                <div class="well">
+                                    <label>Defaults:</label>
+                                    <input id="tags_1" type="text" class="form-control tags" value="foo,bar,baz,roffle">
+                                </div>
+                                <div class="well">
+                                    <label>Technologies: (Programming languages in yellow)</label>
+                                    <input id="tags_2" type="text" class="tags" value="php,ios,javascript,ruby,android,kindle">
+                                </div>
+                            </div>
+                            <script ui-bs>
+                                head.js(
+                                    " js/tag/jquery.tagsinput.css",
+                                    " js/tag/jquery.tagsinput.js",
+                                function() {
+                                    $('#tags_1').tagsInput({ width: 'auto' });
+                                    $('#tags_2').tagsInput({
+                                        width: 'auto',
+                                        onChange: function(elem, elem_tags) {
+                                            var languages = ['php', 'ruby', 'javascript'];
+                                            $('.tag', elem_tags).each(function() {
+                                                if ($(this).text().search(new RegExp('//b(' + languages.join('|') + ')//b')) >= 0)
+                                                    $(this).css('background-color', '#FBB44C');
+                                            });
+                                        }
+                                    });
+                                    $('#tags_3').tagsInput({
+                                        width: 'auto',
+                                        autocomplete_url: 'test/fake_json_endpoint.html' // jquery ui autocomplete requires a json endpoint
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-space"></div>
+        <div id="footer"></div>
+    </div>

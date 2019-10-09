@@ -1,0 +1,149 @@
+    <style type="text/css"> canvas { width: 100% !important; max-width: 1000px; height: auto !important; } </style>
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <div class="row" id="paper-top">Chart</div>
+        <ul id="breadcrumb">UI Elemenrt/Chart</ul>
+        <div class="content-wrap">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="nest" id="realtimeClose">
+                        <div class="title-alt">
+                            <h6> 绘制实时图 </h6>
+                            <div class="titleClose"> <a class="gone" href="#realtimeClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#realtime"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="realtime">
+                            <div id="placeholder" style="width:100%;height:300px;"></div>
+                            <p>You can update a chart periodically to get a real-time effect by using a timer to insert the new data in the plot and redraw it.</p>
+                            <p>Time between updates:<input id="updateInterval" type="text" value="" style="text-align: right; width:5em">milliseconds</p>
+                            <script type="text/javascript" ui-bs>
+                                head.js(
+                                    "../js.lib.j/flot.0.8.3//jquery.flot.min.js",
+                                    "../js.lib.j/flot.0.8.3//jquery.flot.resize.min.js",
+                                function() {
+                                    function n(){
+                                        if(e.length>0)e=e.slice(1);
+                                        while(e.length<t){var n=e.length>0?e[e.length-1]:50;var r=n+Math.random()*10-5;if(r<0)r=0;if(r>100)r=100;e.push(r)}
+                                        var i=[];for(var s=0;s<e.length;++s)i.push([s,e[s]]);return i
+                                    }
+                                    function o(){s.setData([n()]);s.draw();setTimeout(o,r)}
+                                    var e=[],t=300;var r=200;
+                                    $("#updateInterval").val(r).change(function(){
+                                        var e=$(this).val();if(e&&!isNaN(+e)){r=+e;if(r<1)r=1;if(r>2e3)r=2e3;$(this).val(""+r)}
+                                    });
+                                    var i={series:{shadowSize:0},yaxis:{min:0,max:100},xaxis:{min:0,max:100}};
+                                    var s=$.plot($("#placeholder"),[n()],i);
+                                    o()
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="nest" id="plotClose">
+                        <div class="title-alt">
+                            <h6> 情节主线 </h6>
+                            <div class="titleClose"> <a class="gone" href="#plotClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#plot"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="plot">
+                            <div id="placeholder2" style="width:100%;height:300px;"></div>
+                            <p>您可以定期更新图表以获得实时效果，方法是使用计时器将新数据插入到图中并重新绘制。</p>
+                            <div class="graphControls">
+                                <input type="button" class="btn" value="Bars">
+                                <input type="button" class="btn" value="Lines">
+                                <input type="button" class="btn" value="Lines with steps">
+                            </div>
+                            <script type="text/javascript" ui-bs>
+                                head.js(
+                                    "../js.lib.j/flot.0.8.3/jquery.flot.min.js",
+                                    "../js.lib.j/flot.0.8.3/jquery.flot.resize.min.js",
+                                function() {
+                                    var d1 = []; for (var i = 0; i <= 10; i += 1) d1.push([i, parseInt(Math.random() * 30)]);
+                                    var d2 = []; for (var i = 0; i <= 10; i += 1) d2.push([i, parseInt(Math.random() * 30)]);
+                                    var d3 = []; for (var i = 0; i <= 10; i += 1) d3.push([i, parseInt(Math.random() * 30)]);
+                                    var stack = 0, bars = true, lines = false, steps = false;
+                                    function plotWithOptions() {
+                                        $.plot($("#placeholder2"), [ d1, d2, d3 ], {
+                                            series: {
+                                                stack: stack,
+                                                lines: { show: lines, fill: true, steps: steps },
+                                                bars: { show: bars, barWidth: 0.6 }
+                                            }
+                                        });
+                                    }
+                                    plotWithOptions();
+                                    $(".stackControls input").click(function (e) {
+                                        e.preventDefault();
+                                        stack = $(this).val() == "With stacking" ? true : null;
+                                        plotWithOptions();
+                                    });
+                                    $(".graphControls input").click(function (e) {
+                                        e.preventDefault();
+                                        bars = $(this).val().indexOf("Bars") != -1;
+                                        lines = $(this).val().indexOf("Lines") != -1;
+                                        steps = $(this).val().indexOf("steps") != -1;
+                                        plotWithOptions();
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="nest" id="labelClose">
+                        <div class="title-alt">
+                            <h6> 条形图 </h6>
+                            <div class="titleClose"> <a class="gone" href="#labelClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#label"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="label">
+                            <canvas id="canvas1" class="myChart" height="416" width="900"></canvas>
+                            <script type="text/javascript" ui-bs>
+                                head.js(
+                                    "../js.lib.p/chart/Chart.2.3.0.min.js",
+                                function() {
+                                    var barChartData = {
+                                        labels : ["January","February","March","April","May","June","July"],
+                                        datasets : [
+                                            { fillColor : "rgba(106, 218, 228, 0.8)", data : [65,59,90,81,56,55,40] },
+                                            { fillColor : "rgba(52, 152, 219, 0.8)", data : [28,48,40,19,96,27,100] }
+                                        ]
+                                    };
+                                    var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Bar(barChartData,{
+                                        scaleShowLabels : false,
+                                        pointLabelFontSize : 24
+                                    });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <div class="nest" id="lineClose">
+                        <div class="title-alt">
+                            <h6> 折线图 </h6>
+                            <div class="titleClose"> <a class="gone" href="#lineClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#line"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="line">
+                            <canvas id="canvas4" class="myChart" height="416" width="900"></canvas>
+                            <script type="text/javascript" ui-bs>
+                                head.js(
+                                    "../js.lib.p/chart/Chart.2.3.0.min.js",
+                                function() {
+                                    var lineChartData = {
+                                        labels : ["January","February","March","April","May","June","July"],
+                                        datasets : [
+                                            { fillColor : "rgba(49, 195, 166, 0.2)", strokeColor : "rgba(49, 195, 166, 1)", pointColor : "rgba(49, 195, 166, 1)", pointStrokeColor : "#fff", data : [65,59,90,81,56,55,40] },
+                                            { fillColor : "rgba(151,187,205,0.5)", strokeColor : "rgba(151,187,205,1)", pointColor : "rgba(151,187,205,1)", pointStrokeColor : "#fff", data : [28,48,40,19,96,27,100] }
+                                        ]
+                                    };
+                                    var myLine = new Chart(document.getElementById("canvas4").getContext("2d")).Line(lineChartData);
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-space"></div>
+        <div id="footer"></div>
+    </div>
+</body>
+</html>

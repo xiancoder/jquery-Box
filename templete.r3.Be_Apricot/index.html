@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Apricot 1.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../js.lib.cdn/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="../js.lib.local/libs/skin-select/skin-select.css">
+    <link rel="stylesheet" href="../js.lib.cdn/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../js.lib.local/libs/dripicons/dripicon.css">
+    <link rel="stylesheet" href="../js.lib.cdn/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    <link rel="stylesheet" href="../js.lib.local/libs/entypo/entypo-icon.css">
+    <link rel="stylesheet" href="../js.lib.local/libs/maki/maki-icons.css">
+
+    <link rel="stylesheet" href="css/open-sans.css">
+    <link rel="stylesheet" href="css/awwwards.css">
+    <link rel="stylesheet" href="js/tip/tooltipster.css">
+    <link rel="stylesheet" href="../js.lib.cdn/libs/pace/1.0.2/pace-theme-center-simple.css">
+    <link rel="stylesheet" href="js/slidebars/slidebars.css">
+    <link rel="stylesheet" href="js/gage/jquery.easy-pie-chart.css">
+
+    <link rel="stylesheet" type="text/css" href="../js.lib.local/libs/number-pb/number-pb.css">
+    <style type="text/css"> canvas#canvas4 { position: relative; top: 20px; } </style>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="ico/minus.png">
+</head>
+<body> 
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <!-- TOP NAVBAR -->
+    <nav role="navigation" class="navbar navbar-static-top">
+    </nav>
+    <!-- /END OF TOP NAVBAR -->
+    <!-- SIDE MENU -->
+    <div role="leftslider" id="skin-select">
+    </div>
+    <!-- END OF SIDE MENU -->
+    <!--  PAPER WRAP -->
+    <div role="content" class="wrap-fluid" style="width: auto; margin-left: 250px;">
+    </div>
+    <!--  END OF PAPER WRAP -->
+    <!-- RIGHT SLIDER CONTENT -->
+    <div role="rightslider" class="sb-slidebar sb-right">
+    </div>
+    <div style="text-align:center;">
+        <p>来源：<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+    </div>
+</body>
+</html>
+<!-- END OF RIGHT SLIDER CONTENT-->
+<script src="../js.lib.cdn/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../js.lib.cdn/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../js.lib.cdn/libs/headjs/1.0.3/head.min.js"></script>
+<script type="text/javascript">
+    //PAGE LOADER
+    head.js(
+        "../js.lib.cdn/libs/pace/1.0.2/pace.min.js",
+    function() {
+        paceOptions = {
+            ajax: false, // disabled
+            document: false, // disabled
+            eventLag: false, // disabled
+            elements: {
+                selectors: ['.my-page']
+            }
+        };
+    });
+    $("[role='navigation']").load("block/navigation.html",function(){
+        $('.navbar').css({"margin-left":"240px"});
+        $('.dropdown-wrap').css({"position":"absolute", "left":"0px", "top":"53px"});
+        // toggle skin select
+        $("#skin-select").on("click","#toggle",function() {
+            if($(this).hasClass('active')) {
+                $(this).removeClass('active');
+                $('#skin-select').animate({ left:0 }, 100);
+                $('.wrap-fluid').css({"width":"auto","margin-left":"250px"});
+                $('.navbar').css({"margin-left":"240px"});
+                $('#skin-select li').css({"text-align":"left"});
+                $('#skin-select li span, ul.topnav h4, .side-dash, .noft-blue, .noft-purple-number, .noft-blue-number, .title-menu-left').css({"display":"inline-block", "float":"none"});
+                //$('body').css({"padding-left":"250px"});
+                $('.ul.topnav li a:hover').css({" background-color":"green!important"});
+                $('.ul.topnav h4').css({"display":"none"});
+                $('.tooltip-tip2').addClass('tooltipster-disable');
+                $('.tooltip-tip').addClass('tooltipster-disable');
+                $('.datepicker-wrap').css({"position":"absolute", "right":"300px"});
+                $('.skin-part').css({"visibility":"visible"});
+                $('#menu-showhide, .menu-left-nest').css({"margin":"10px"});
+                $('.dark').css({"visibility":"visible"});
+                $('.search-hover').css({"display":"none"});
+                $('.dropdown-wrap').css({"position":"absolute", "left":"0px", "top":"53px"});
+            } else {
+                $(this).addClass('active')
+                //$('#skin-select').animate({ left:-200 }, 100);
+                $('#skin-select').animate({ left:-200 }, 100);
+                $('.wrap-fluid').css({"width":"auto", "margin-left":"50px"});
+                $('.navbar').css({"margin-left":"50px"});
+                $('#skin-select li').css({"text-align":"right"});
+                $('#skin-select li span, ul.topnav h4, .side-dash, .noft-blue, .noft-purple-number, .noft-blue-number, .title-menu-left').css({"display":"none"});
+                //$('body').css({"padding-left":"50px"});
+                $('.tooltip-tip2').removeClass('tooltipster-disable');
+                $('.tooltip-tip').removeClass('tooltipster-disable');
+                $('.datepicker-wrap').css({"position":"absolute", "right":"84px"});
+                $('.skin-part').css({"visibility":"visible", "top":"3px"});
+                $('.dark').css({"visibility":"hidden"});
+                $('#menu-showhide, .menu-left-nest').css({"margin":"0"});
+                $('.search-hover').css({"display":"block", "position":"absolute", "right":"-100px"});
+                $('.dropdown-wrap').css({"position":"absolute", "left":"-10px", "top":"53px"});
+            }
+            return false;
+        });
+        // show skin select for a second
+        $("#skin-select #toggle").addClass('active');
+        //SHOWING DATE
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+        var dayNames = ["Sun, ", "Mon, ", "Tue, ", "Wed, ", "Thu, ", "Fri, ", "Sat, "]
+        var newDate = new Date();
+        newDate.setDate(newDate.getDate() + 1);
+        $('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+        ////Right Sliding menu
+        /*head.js(
+            "js/slidebars/slidebars.min.js",
+            "../js.lib.j/easing/jquery.easing.1.3.js",
+        function() {
+            var mySlidebars = new $.slidebars();
+            $('.toggle-left').on('click', function() {
+                mySlidebars.toggle('right');
+            });
+        });*/
+        $("[role='rightslider']").css({ "right": "-300px", "display": "block" });
+        $('.toggle-left').on('click', function() {
+            var x = $("[role='rightslider']");
+            if( x.hasClass("act") ){
+                x.css({ "right": "-300px" });
+                x.removeClass("act");
+            }else{
+                x.css({ "right": "-10px" });
+                x.addClass("act");
+            }
+        });
+        //NEWS STICKER
+        head.js("js/newsticker/jquery.newsTicker.js", function() {
+            $('#nt-title').newsTicker({ row_height: 18, max_rows: 1, duration: 5000, pauseOnHover: 0 });
+        });
+        //------------------------------------------------------------- 
+        //DIGITAL CLOCK
+        head.js(
+            "js/clock/jquery.clock.js",
+        function() {
+            $('#digital-clock').clock({ offset: '+5', type: 'digital' });
+        });
+        $('.tooltitle').tooltip();
+        $("#button-bg").click(function() { $("body").css({ "background": "url('img/bg5.jpg')no-repeat center center fixed" }); });
+        $("#button-bg2").click(function() { $("body").css({ "background": "url('img/bg2.jpg')no-repeat center center fixed" }); });
+        $("#button-bg3").click(function() { $("body").css({ "background": "url('img/bg.jpg')no-repeat center center fixed" }); });
+        $("#button-bg5").click(function() { $("body").css({ "background": "url('img/giftly.png')repeat" }); });
+        $("#button-bg6").click(function() { $("body").css({ "background": "#2c3e50" }); });
+        $("#button-bg7").click(function() { $("body").css({ "background": "url('img/bg3.png')repeat" }); });
+        $("#button-bg8").click(function() { $("body").css({ "background": "url('img/bg8.jpg')no-repeat center center fixed" }); });
+        $("#button-bg9").click(function() { $("body").css({ "background": "url('img/bg9.jpg')no-repeat center center fixed" }); });
+        $("#button-bg10").click(function() { $("body").css({ "background": "url('img/bg10.jpg')no-repeat center center fixed" }); });
+        $("#button-bg11").click(function() { $("body").css({ "background": "url('img/bg11.jpg')no-repeat center center fixed" }); });
+        $("#button-bg12").click(function() { $("body").css({ "background": "url('img/bg12.jpg')no-repeat center center fixed" }); });
+        $("#button-bg13").click(function() { $("body").css({ "background": "url('img/bg13.jpg')repeat" }); });
+    });
+    $("[role='leftslider']").load("block/left-slider.html",function(){
+        $('#skin-select').animate({ left:0 }, 100);
+        $('#skin-select li').css({"text-align":"left"});
+        $('#skin-select li span, ul.topnav h4, .side-dash, .noft-blue, .noft-purple-number, .noft-blue-number, .title-menu-left').css({"display":"inline-block", "float":"none"});
+        $('.ul.topnav li a:hover').css({" background-color":"green!important"});
+        $('.ul.topnav h4').css({"display":"none"});
+        $('.tooltip-tip2').addClass('tooltipster-disable');
+        $('.tooltip-tip').addClass('tooltipster-disable');
+        $('.skin-part').css({"visibility":"visible"});
+        $('#menu-showhide, .menu-left-nest').css({"margin":"10px"});
+        $('.dark').css({"visibility":"visible"});
+        $('.search-hover').css({"display":"none"});
+        //-------------------------------------------------------------
+        $(this).find("#tree-wrap a").mouseup(function(e){
+            if (3 == e.which) { clickRight( $(this) ) } //右键
+        });
+        function clickRight( me ){
+            var filepath = me.attr("href").replace("#","tpl/") + ".html";
+            if( filepath )
+            $.ajax( {
+                url:"server.php/OpenEP.php",
+                data:{ path:filepath }, type:'post', cache:false,
+                success:function(data) {}
+            });
+        }
+        //SPARKLINE CHART
+        head.js(
+            "../js.lib.cdn/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js",
+        function() {
+            $('.linebar').sparkline('html', { type: 'bar', barWidth: '5px', height: '30px', barSpacing: '2px', barColor: '#44BBC1' });
+            $('.linebar2').sparkline('html', { type: 'bar', barWidth: '5px', height: '30px', barSpacing: '2px', barColor: '#AB6DB0' });
+            $('.linebar3').sparkline('html', { type: 'bar', barWidth: '5px', height: '30px', barSpacing: '2px', barColor: '#19A1F9' });
+        });
+        //------------------------------------------------------------- 
+        head.js(
+            "js/gage/raphael.2.1.0.min.js",
+            "js/gage/justgage.js",
+        function() {
+            new JustGage({
+                id: "g1", value: getRandomInt(0, 1000), min: 0, max: 1000, relativeGaugeSize: true,
+                gaugeColor: "rgba(0,0,0,0.4)", levelColors: "#0DB8DF", labelFontColor : "#ffffff",
+                titleFontColor: "#ffffff", valueFontColor :"#ffffff", label: "VISITORS",
+                gaugeWidthScale: 0.2, donut: true }
+            );
+        });
+        //-------------------------------------------------------------
+        //SEARCH MENU
+        head.js( 
+            "../js.lib.cdn/libs/jquery.quicksearch/2.4.0/jquery.quicksearch.min.js",
+        function() {
+            $('input.id_search').quicksearch('#menu-showhide li, .menu-left-nest li');
+        });
+        //-------------------------------------------------------------
+        head.js(
+            "js/tip/jquery.tooltipster.js",
+        function() {
+            $('.tooltip-tip').tooltipster({ position: 'right', animation: 'slide', theme: '.tooltipster-shadow', delay: 1, offsetX: '-12px', onlyOne: true });
+        });
+        //------------------------------------------------------------- 
+        ////Acordion and Sliding menu
+        head.js(
+            "js/custom/scriptbreaker-multiple-accordion-1.js",
+        function() {
+            $(".topnav").accordionze({
+                accordionze: true,
+                speed: 500,
+                closedSign: '<img src="img/plus.png">',
+                openedSign: '<img src="img/minus.png">'
+            });
+        });
+    });
+    $("[role='rightslider']").load("block/right-slider.html",function(){
+        head.js(
+            "../js.lib.cdn/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js",
+        function() {
+            $('.chart').easyPieChart({
+                easing: 'easeOutBounce', trackColor: '#ffffff',
+                scaleColor: '#ffffff', barColor: '#FF0064',
+                onStep: function(from, to, percent) {
+                    $(this.el).find('.percent').text(Math.round(percent));
+                }
+            });
+            $('.speed-car').easyPieChart({
+                easing: 'easeOutBounce', trackColor: 'rgba(0,0,0,0.3)', scaleColor: 'transparent',
+                barColor: '#0085DF', lineWidth: 8,
+                onStep: function(from, to, percent) {
+                    $(this.el).find('.percent2').text(Math.round(percent));
+                }
+            });
+            $('.overall').easyPieChart({
+                easing: 'easeOutBounce', trackColor: 'rgba(0,0,0,0.3)', scaleColor: '#323A45',
+                lineWidth: 35, lineCap: 'butt', barColor: '#FFB900',
+                onStep: function(from, to, percent) {
+                    $(this.el).find('.percent3').text(Math.round(percent));
+                }
+            });
+        });
+    });
+    $("[role='content']").each(function(){
+        var iframe = $('<iframe id="thisiframe" name="thisiframe" frameborder="0" style="width:100%;min-height:1000px"></iframe>');
+        var page = window.location.hash || "#Dashboard";
+        iframe.attr("src","iframe.html?page=" + page.replace("#","tpl/") + ".html");
+        $(this).append(iframe);
+        setInterval(setIframeHeight,1e3);
+    });
+    $(window).on('hashchange',function(){
+        var page = window.location.hash || "#Dashboard";
+        $("#thisiframe").attr("src","iframe.html?page=" + page.replace("#","tpl/") + ".html");
+    });
+    function _Url_getParame(name,cancelBubble){
+        var r = new RegExp("(\\?|#|&)"+name+"=([^&#]*)(&|#|$)");
+        var m = location.href.match(r);
+        if( !m && !cancelBubble ) m=window.location.href.match(r);
+        return ( m?decodeURIComponent(m[2]):"" );
+    }
+    var oldIframeHeigth = 0;
+    function setIframeHeight() {
+        var iframe = document.getElementById('thisiframe');
+        if ( ! iframe ) return;
+        var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+        if ( ! iframeWin.document.body ) return;
+        var h = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+        if( oldIframeHeigth == h ) return;
+        if( h > 400 ) iframe.height = oldIframeHeigth = h ;
+    }
+    function openEP(dom){
+        var path = dom.href.replace(/^.*#/g,'');
+        $.ajax( {
+            url:"server.php/OpenEP.php", dataType:'json',
+            data:{path:"tpl/" + path + ".html"}, type:'post', cache:false,
+            success:function(data) {},
+            error : function() {}
+        });
+    }
+    head.js(
+        "js/pnotify/jquery.pnotify.default.css",
+        "js/pnotify/jquery.pnotify.min.js",
+    function() {
+        window.topAlert = function ( msg , type ){
+             $.pnotify({ title: 'New Thing', text: msg, type: type });
+        }
+    });
+    /*
+    $('#status').fadeOut(); // will first fade out the loading animation
+    $('#preloader').fadeOut(); // will fade out the white DIV that covers the website.
+    $('body').delay(350).css({ 'overflow': 'visible' });
+    */
+</script>

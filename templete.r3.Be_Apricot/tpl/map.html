@@ -1,0 +1,81 @@
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <div class="row" id="paper-top">Map</div>
+        <ul id="breadcrumb">Home/Map</ul>
+        <div class="content-wrap">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="nest" id="GmapClose">
+                        <div class="title-alt">
+                            <h6> Gmap</h6>
+                            <div class="titleClose"> <a class="gone" href="#GmapClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#Gmap"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div style="padding:0;" class="body-nest" id="Gmap">
+                            <div id="test1" class="gmap" style="width:100%;height:500px;position:relative;"></div>
+                            <script ui-bs>
+                                /*head.js(
+                                    "http://maps.google.cn/maps/api/js?sensor=false",
+                                    " js/map/gmap3.js",
+                                function() {
+                                    $("#test1").gmap3({
+                                        marker: {
+                                            latLng: [52.500556, 13.398889],
+                                            options: { draggable: true },
+                                            events: {
+                                                dragend: function(marker) {
+                                                    $(this).gmap3({
+                                                        getaddress: {
+                                                            latLng: marker.getPosition(),
+                                                            callback: function(results) {
+                                                                var map = $(this).gmap3("get"),
+                                                                    infowindow = $(this).gmap3({ get: "infowindow" }),
+                                                                    content = results && results[1] ? results && results[1].formatted_address : "no address";
+                                                                if (infowindow) {
+                                                                    infowindow.open(map, marker);
+                                                                    infowindow.setContent(content);
+                                                                } else {
+                                                                    $(this).gmap3({ infowindow: { anchor: marker, options: { content: content } } });
+                                                                }
+                                                            }
+                                                        }
+                                                    });
+                                                }
+                                            }
+                                        },
+                                        map: {
+                                            options: { zoom: 13 }
+                                        }
+                                    });
+                                });*/
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-wrap">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="nest" id="JHereClose">
+                        <div class="title-alt">
+                            <h6> JHere</h6>
+                            <div class="titleClose"> <a class="gone" href="#JHereClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#JHere"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div style="padding:0;" class="body-nest" id="JHere">
+                            <div id="mapContainer" style="width:100%;height:500px;position:relative;"></div>
+                            <script ui-bs>
+                                head.js(
+                                    "http://jhere.net/js/jhere-custom.js",
+                                function() {
+                                    $('#mapContainer').jHERE({ center: [52.500556, 13.398889], type: 'smart', zoom: 13 });
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-space"></div>
+        <div id="footer"></div>
+    </div>

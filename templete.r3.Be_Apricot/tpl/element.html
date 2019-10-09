@@ -1,0 +1,140 @@
+    <div class="container-fluid paper-wrap bevel tlbr">
+        <div class="row" id="paper-top">Element</div>
+        <ul id="breadcrumb">UI Element/Element</ul>
+        <div class="content-wrap">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="nest" id="alertClose">
+                        <div class="title-alt">
+                            <h6>Alert</h6>
+                            <div class="titleClose"> <a class="gone" href="#alertClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#alert"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="alert">
+                            <p>For longer messages, increase the padding on the top and bottom of the alert wrapper by adding
+                                <code>.alert-block</code>.</p>
+                            <div class="alert alert-warning">
+                                <button data-dismiss="alert" class="close" type="button">×</button>
+                                <span class="entypo-cancel-circled"></span>
+                                <strong>Warning!</strong>&nbsp;&nbsp;Best check yo self, you're not looking too good.
+                            </div>
+                            <div class="alert alert-danger">
+                                <button data-dismiss="alert" class="close" type="button">×</button>
+                                <span class="entypo-attention"></span>
+                                <strong>Oh snap!</strong>&nbsp;&nbsp;Change a few things up and try submitting again.
+                            </div>
+                            <div class="alert alert-success">
+                                <button data-dismiss="alert" class="close" type="button">×</button>
+                                <span class="entypo-thumbs-up"></span>
+                                <strong>Well done!</strong>&nbsp;&nbsp;You successfully read this important alert message.
+                            </div>
+                            <div class="alert alert-info">
+                                <button data-dismiss="alert" class="close" type="button">×</button>
+                                <span class="entypo-info-circled"></span>
+                                <strong>Heads up!</strong>&nbsp;&nbsp;This alert needs your attention, but it's not super important.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nest" id="progressClose">
+                        <div class="title-alt">
+                            <h6> Progress Bar</h6>
+                            <div class="titleClose"> <a class="gone" href="#progressClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#progress"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="progress">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                    <span class="sr-only">40% Complete (success)</span>
+                                </div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                    <span class="sr-only">20% Complete</span>
+                                </div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                    <span class="sr-only">60% Complete (warning)</span>
+                                </div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                    <span class="sr-only">80% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nest" id="labelClose">
+                        <div class="title-alt">
+                            <h6> Labels and Badges</h6>
+                            <div class="titleClose"> <a class="gone" href="#labelClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#label"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="label">
+                            <ul>
+                                <li> <span class="label">Default</span> </li>
+                                <li> <span class="label label-success">Success</span> </li>
+                                <li> <span class="label label-warning">Warning</span> </li>
+                                <li> <span class="label label-important">Important</span> </li>
+                                <li> <span class="label label-info">Info</span> </li>
+                                <li> <span class="label label-inverse">Inverse</span> </li>
+                            </ul>
+                            <ul>
+                                <li> <span class="badge">1</span> </li>
+                                <li> <span class="badge badge-success">2</span> </li>
+                                <li> <span class="badge badge-warning">4</span> </li>
+                                <li> <span class="badge badge-important">6</span> </li>
+                                <li> <span class="badge badge-info">8</span> </li>
+                                <li> <span class="badge badge-inverse">10</span> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="nest" id="notifClose">
+                        <div class="title-alt">
+                            <h6>Notify</h6>
+                            <div class="titleClose"> <a class="gone" href="#notifClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#notif"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div id="notif" style="display:block" class="body-nest">
+                            <button onClick="topAlert('Just to let you know, something happened.','info')" class="btn source">info Notice</button>
+                            <button onClick="topAlert('Just to let you know, something happened.','success')" class="btn source">success Notice</button>
+                            <button onClick="topAlert('Just to let you know, something happened.','error')" class="btn source">error Notice</button>
+                            <button onClick="topAlert('Just to let you know, something happened.','')" class="btn source">Info Notice</button>
+                        </div>
+                    </div>
+                    <div class="nest" id="tipClose">
+                        <div class="title-alt">
+                            <h6> Tooltip</h6>
+                            <div class="titleClose"> <a class="gone" href="#tipClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#tip"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="tip">
+                            <button type="button" class="btn" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+                            <button type="button" class="btn" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+                            <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+                            <button type="button" class="btn" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                        </div>
+                    </div>
+                    <div class="nest" id="scriptClose">
+                        <div class="title-alt">
+                            <h6> Labels and Badges</h6>
+                            <div class="titleClose"> <a class="gone" href="#scriptClose"> <span class="entypo-cancel"></span> </a> </div>
+                            <div class="titleToggle"> <a class="nav-toggle-alt" href="#script"> <span class="entypo-up-open"></span> </a> </div>
+                        </div>
+                        <div class="body-nest" id="label">
+                            <script type="text/javascript" ui-bs>
+                                $('.btn').tooltip();
+                                function topAlert( msg , type ){
+                                     window.parent.window.topAlert( msg , type );
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-space"></div>
+        <div id="footer"></div>
+    </div>

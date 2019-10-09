@@ -1,0 +1,122 @@
+#TITLE=XIAN
+
+; EditPlus auto-completion file written by Stefan van As.
+; This file is provided as a default auto-completion file for JavaScript.
+
+#CASE=y
+
+#T=id
+id="^!"
+#T=name
+name="^!"
+#T=cl
+class="^!"
+#T=st
+style="^!"
+#T=ready
+$(document).ready(function(){});
+#T=$
+$("xx").^!(function(){});
+#T=oh
+overflow:hidden;
+#T=dn
+display:none;
+#T=dns
+style="display:none;"
+#T=pos
+position: absolute relative;top: 0px;left: 0px;right: auto;z-index:10;
+#T=ali
+text-align:center;
+#T=ve
+vertical-align: middle
+#T=v
+value="^!"
+#T=pad
+padding: 0px;margin: 0px;
+#T=shou
+cursor:pointer
+#T=bac
+background: url(".");
+#T=
+background: #fafafa; background-image:url(""); background-position: 0 center; background-repeat: no-repeat;
+#T=background-s
+-webkit-background-size: 100% 100%;/* Safari */ -moz-background-size: 100% 100%;/* Gecko */ -o-background-size: 100% 100%;/* Opera */ background-size: 100% 100%;/* other */
+#T=bor
+border: 1px solid #f96c0e;
+#T=border-r
+border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%;
+#T=fon
+font-family:"Microsoft YaHei","Times New Roman",Georgia,Serif;
+#T=wor
+word-break: break-all;white-space: nowrap;word-wrap: break-word;
+#T=ie
+$.browser.msie
+#T=togg
+$(this).toggleClass("clicked");
+#T=sett
+setTimeout clearTimeout()
+#T=seti
+setInterval() clearInterval()
+#T=math
+Math.random().ceil().floor().round()
+#T=json
+JSON.parse().stringify()
+#T=stl
+<link rel="stylesheet" href='^!'/>
+#T=stt
+<style type='text/css'>^!</style>
+#T=scl
+<script type="text/javascript" src="^!"></script>
+#T=sct
+<script type="text/javascript">^!</script>
+
+#T=utf
+<meta charset="utf-8">^!
+#T=wid
+width: 0px; height: 0px; line-height: 0px;
+#T=ajax
+$.ajax( {
+    url:'some.php', dataType:'json',
+    data:{}, type:'post', cache:false,
+    success:function(data) {},
+    error : function() {}
+});
+#T=htmlt
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>xian</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="liuyp <whereispal5@163.com>">
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth/640;
+        document.write('<meta name="viewport" content="width=640,initial-scale='+phoneScale+',minimum-scale='+phoneScale+',maximum-scale='+phoneScale+',target-densitydpi=device-dpi">');
+    </script>
+    <!--<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, user-scalable=1" />-->
+    <link rel="stylesheet" href=''/>
+    <style type='text/css'></style>
+    <script src=""></script>
+    <script type="text/javascript"></script>
+</head>
+<body>
+</body>
+</html>
+#T=zishiy
+<script type="text/javascript">
+	var phoneWidth = parseInt(window.screen.width);
+	var phoneScale = phoneWidth/640;
+	document.write('<meta name="viewport" content="width=640,initial-scale='+phoneScale+',minimum-scale='+phoneScale+',maximum-scale='+phoneScale+',target-densitydpi=device-dpi">');
+</script>
+#T=guding
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=2.0, user-scalable=1" />
+#T=gete
+document.getElementById("")
+#T=lowup
+toLowerCase() toUpperCase()
+#T=for
+for(var i = 0, l = xx.length; i < l; i++){
+^!
+}
+#
